@@ -47,42 +47,82 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+#### STEP 1:
+Open the quartus 2 software give the file name to write the program
 
+#### STEP 2:
+Declare input and output variable throuugh module and filename
 
+#### STEP 3:
+Now,declare input,output and wire variables.
 
+#### STEP 4:
+for multiplexer we use 2 not gate,4 and gate and 1 or gate which is output. similary, for demultiplexer we use 2 not gate and 4 and gate which is output.
+
+#### STEP 5:
+After completing program , we have to end program by using endmodule command which is used in verilog.
+
+#### STEP 6:
+Now we can save and run the porgram.
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
-
-
-
-
+Developed by:DHANUMALYA D 
+RegisterNumber:212222230030  
+```
+#### MULTIPLEXER
+```
+module nmux(a,s,y);
+input[3:0]a;
+input[1:0]s;
+output reg y;
+always @ (a,s)
+begin
+case(s)
+   2'b00:y=a[0];
+   2'b01:y=a[1];
+   2'b10:y=a[2];
+   2'b11:y=a[3];
+endcase
+end
+endmodule
+```
+#### DEMULTIPLEXER
+```
+module dmux(input in, input [1:0] sel, output reg [3:0] out);
+  always @(in or sel) begin
+    case(sel)
+      2'b00: out = 4'b0001;
+      2'b01: out = 4'b0010;
+      2'b10: out = 4'b0100;
+      2'b11: out = 4'b1000;
+      default: out = 4'b0000; // Default case
+    endcase
+  end
+endmodule
+```
 
 ### RTL LOGIC  
 
+#### MULTIPLEXER
+![mun](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/d45e3c71-3c90-4b39-80e1-2e2f9b36e3c4)
 
-
-
-
-
-
+#### DEMULTIPLEXER
+![demn](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/28aa109f-5fb5-4ef7-8666-5ce5b4e09e7a)
 
 ### TIMING DIGRAMS  
+#### MULTIPLEXER
+![mut](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/eceec89f-3319-496e-8d1c-12903e7bafbb)
 
-
-
-
+#### DEMULTIPLEXER
+![demt](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/9fed4174-4555-40ee-9361-116afe5d612b)
 
 ### TRUTH TABLE 
+#### MULTIPLEXER
+![image](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/46881ca9-b7b9-48b0-bb7b-bda07318aaf5)
 
-
-
-
-
+#### DEMULTIPLEXER
+![image](https://github.com/Dhanudhanaraj/Exercise-07-Multiplexer-and-De-multiplexer/assets/119218812/fab8f3ae-79a1-4bdb-bb31-862ba053cbe9)
 
 ### RESULTS 
+Therefore multiplexer and demultiplexer is executed successfully.
